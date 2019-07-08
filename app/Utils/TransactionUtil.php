@@ -78,6 +78,11 @@ class TransactionUtil extends Util
             'recur_repetitions' => !empty($input['recur_repetitions']) ? $input['recur_repetitions'] : 0,
             'order_addresses' => !empty($input['order_addresses']) ? $input['order_addresses'] : null,
             'sub_type' => !empty($input['sub_type']) ? $input['sub_type'] : null,
+            'order_made' => !empty($input['order_made']) ? $input['order_made'] : null,
+            'tracking_to_warehouse' => !empty($input['tracking_to_warehouse']) ? $input['tracking_to_warehouse'] : null,
+            'shipping_channel' => !empty($input['shipping_channel']) ? $input['shipping_channel'] : null,
+            'tracking_to_customer' => !empty($input['tracking_to_customer']) ? $input['tracking_to_customer'] : null,
+            'tracking_send_to_customer' => !empty($input['tracking_send_to_customer']) ? $input['tracking_send_to_customer'] : null,
         ]);
 
         return $transaction;
@@ -138,6 +143,11 @@ class TransactionUtil extends Util
             'recur_interval_type' => !empty($input['recur_interval_type']) ? $input['recur_interval_type'] : null,
             'recur_repetitions' => !empty($input['recur_repetitions']) ? $input['recur_repetitions'] : 0,
             'order_addresses' => !empty($input['order_addresses']) ? $input['order_addresses'] : null,
+            'order_made' => !empty($input['order_made']) ? $input['order_made'] : null,
+            'tracking_to_warehouse' => !empty($input['tracking_to_warehouse']) ? $input['tracking_to_warehouse'] : null,
+            'shipping_channel' => !empty($input['shipping_channel']) ? $input['shipping_channel'] : null,
+            'tracking_to_customer' => !empty($input['tracking_to_customer']) ? $input['tracking_to_customer'] : null,
+            'tracking_send_to_customer' => !empty($input['tracking_send_to_customer']) ? $input['tracking_send_to_customer'] : null,
         ];
 
         if (!empty($input['transaction_date'])) {

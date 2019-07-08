@@ -202,6 +202,75 @@
 
 			@component('components.widget', ['class' => 'box-primary'])
 				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Order Made', __('Order Made') . ':*' ) !!}
+						<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-info"></i>
+					</span>
+							{!! Form::text('order_made', $transaction->order_made, ['class' => 'form-control', 'placeholder'=> __('Order Made')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Tracking To Warehouse', __('Tracking To Warehouse') . ':*' ) !!}
+						<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-info"></i>
+					</span>
+							{!! Form::text('tracking_to_warehouse', $transaction->tracking_to_warehouse, ['class' => 'form-control', 'placeholder'=> __('Tracking To Warehouse')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Shipping Channel', __('Shipping Channel')) !!}
+						<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-info"></i>
+					</span>
+							{!! Form::text('shipping_channel', $transaction->shipping_channel, ['class' => 'form-control', 'placeholder'=> __('Shipping Channel')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Tracking To Customer', __('Tracking To Customer') . ':*' ) !!}
+						<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-info"></i>
+					</span>
+							{!! Form::text('tracking_to_customer', $transaction->tracking_to_customer, ['class' => 'form-control', 'placeholder'=> __('Tracking To Customer')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!!Form::label('Tracking Send To Customer', __('Tracking Send To Customer'))!!}
+						<div class="input-group">
+				<span class="input-group-addon">
+				<i class="fa fa-info"></i>
+				</span>
+							{!!Form::text('tracking_send_to_customer', $transaction->tracking_send_to_customer,['class'=>'form-control','placeholder'=> __('Tracking Send To Customer')]);!!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+			@endcomponent
+
+			@component('components.widget', ['class' => 'box-primary'])
+				<div class="col-md-4">
 			        <div class="form-group">
 			            {!! Form::label('discount_type', __('sale.discount_type') . ':*' ) !!}
 			            <div class="input-group">

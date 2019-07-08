@@ -81,7 +81,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-user"></i>
 							</span>
-							<input type="hidden" id="default_customer_id" 
+							<input type="hidden" id="default_customer_id"
 							value="{{ $walk_in_customer['id']}}" >
 							<input type="hidden" id="default_customer_name" 
 							value="{{ $walk_in_customer['name']}}" >
@@ -219,6 +219,75 @@
 
 			@component('components.widget', ['class' => 'box-primary'])
 				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Order Made', __('Order Made') . ':*' ) !!}
+						<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-info"></i>
+						</span>
+							{!! Form::text('order_made', '', ['class' => 'form-control', 'placeholder'=> __('Order Made')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Tracking To Warehouse', __('Tracking To Warehouse') . ':*' ) !!}
+						<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-info"></i>
+						</span>
+							{!! Form::text('tracking_to_warehouse', '', ['class' => 'form-control', 'placeholder'=> __('Tracking To Warehouse')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Shipping Channel', __('Shipping Channel')) !!}
+						<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-info"></i>
+						</span>
+							{!! Form::text('shipping_channel', '', ['class' => 'form-control', 'placeholder'=> __('Shipping Channel')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!! Form::label('Tracking To Customer', __('Tracking To Customer') . ':*' ) !!}
+						<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-info"></i>
+						</span>
+							{!! Form::text('tracking_to_customer', '', ['class' => 'form-control', 'placeholder'=> __('Tracking To Customer')]); !!}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						{!!Form::label('Tracking Send To Customer', __('Tracking Send To Customer'))!!}
+						<div class="input-group">
+					<span class="input-group-addon">
+					<i class="fa fa-info"></i>
+					</span>
+						{!!Form::text('tracking_send_to_customer', '',['class'=>'form-control','placeholder'=> __('Tracking Send To Customer')]);!!}
+					</div>
+					</div>
+				</div>
+				<div class="col-md-4"><br>
+				</div>
+				<div class="clearfix"></div>
+			@endcomponent
+
+			@component('components.widget', ['class' => 'box-primary'])
+				<div class="col-md-4">
 			        <div class="form-group">
 			            {!! Form::label('discount_type', __('sale.discount_type') . ':*' ) !!}
 			            <div class="input-group">
@@ -241,7 +310,7 @@
 			        </div>
 			    </div>
 			    <div class="col-md-4"><br>
-			    	<b>@lang( 'sale.discount_amount' ):</b>(-) 
+			    	<b>@lang( 'sale.discount_amount' ):</b>(-)
 					<span class="display_currency" id="total_discount">0</span>
 			    </div>
 			    <div class="clearfix"></div>
@@ -354,4 +423,5 @@
     @if(in_array('tables' ,$enabled_modules) || in_array('modifiers' ,$enabled_modules) || in_array('service_staff' ,$enabled_modules))
     	<script src="{{ asset('js/restaurant.js?v=' . $asset_v) }}"></script>
     @endif
+
 @endsection

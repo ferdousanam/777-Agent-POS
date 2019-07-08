@@ -45,6 +45,11 @@
                             <th>@lang('sale.invoice_no')</th>
                             <th>@lang('sale.customer_name')</th>
                             <th>@lang('sale.location')</th>
+                            <th>@lang('Order Made')</th>
+                            <th>@lang('Tracking To Warehouse')</th>
+                            <th>@lang('Shipping Channel')</th>
+                            <th>@lang('Tracking To Customer')</th>
+                            <th>@lang('Tracking Send To Customer')</th>
                             <th>@lang('sale.payment_status')</th>
                             <th>@lang('sale.total_amount')</th>
                             <th>@lang('sale.total_paid')</th>
@@ -55,6 +60,11 @@
                     <tfoot>
                         <tr class="bg-gray font-17 footer-total text-center">
                             <td colspan="4"><strong>@lang('sale.total'):</strong></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td id="footer_payment_status_count"></td>
                             <td><span class="display_currency" id="footer_sale_total" data-currency_symbol ="true"></span></td>
                             <td><span class="display_currency" id="footer_total_paid" data-currency_symbol ="true"></span></td>
@@ -134,6 +144,11 @@ $(document).ready( function(){
             { data: 'invoice_no', name: 'invoice_no'},
             { data: 'name', name: 'contacts.name'},
             { data: 'business_location', name: 'bl.name'},
+            { data: 'order_made', name: 'order_made'},
+            { data: 'tracking_to_warehouse', name: 'tracking_to_warehouse'},
+            { data: 'shipping_channel', name: 'shipping_channel'},
+            { data: 'tracking_to_customer', name: 'tracking_to_customer'},
+            { data: 'tracking_send_to_customer', name: 'tracking_send_to_customer'},
             { data: 'payment_status', name: 'payment_status'},
             { data: 'final_total', name: 'final_total'},
             { data: 'total_paid', name: 'total_paid', "searchable": false},
@@ -155,7 +170,7 @@ $(document).ready( function(){
             __currency_convert_recursively($('#sell_table'));
         },
         createdRow: function( row, data, dataIndex ) {
-            $( row ).find('td:eq(4)').attr('class', 'clickable_td');
+            $( row ).find('td:eq(9)').attr('class', 'clickable_td');
         }
     });
 
