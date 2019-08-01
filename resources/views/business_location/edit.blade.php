@@ -13,21 +13,21 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">
-            {!! Form::label('name', __( 'invoice.name' ) . ':*') !!}
-              {!! Form::text('name', $location->name, ['class' => 'form-control', 'required', 'placeholder' => __( 'invoice.name' ) ]); !!}
+            {!! Form::label('name', __( 'Business Name' ) . ':*') !!}
+              {!! Form::text('name', $location->name, ['class' => 'form-control', 'required', 'placeholder' => __( 'Business Name' ) ]); !!}
           </div>
         </div>
         <div class="clearfix"></div>
         <div class="col-sm-6">
           <div class="form-group">
-            {!! Form::label('location_id', __( 'lang_v1.location_id' ) . ':') !!}
-              {!! Form::text('location_id', $location->location_id, ['class' => 'form-control', 'placeholder' => __( 'lang_v1.location_id' ) ]); !!}
+            {!! Form::label('business_sku', __( 'Business Sku' ) . ':') !!}
+              {!! Form::text('business_sku', $location->business_sku, ['class' => 'form-control', 'placeholder' => __( 'Business Sku' ) ]); !!}
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            {!! Form::label('landmark', __( 'business.landmark' ) . ':') !!}
-              {!! Form::text('landmark', $location->landmark, ['class' => 'form-control', 'placeholder' => __( 'business.landmark' ) ]); !!}
+            {!! Form::label('business_activity', __( 'Business Activity' ) . ':') !!}
+              {!! Form::text('business_activity', $location->business_activity, ['class' => 'form-control', 'placeholder' => __( 'Business Activity' ) ]); !!}
           </div>
         </div>
         <div class="clearfix"></div>
@@ -59,14 +59,14 @@
         <div class="clearfix"></div>
         <div class="col-sm-6">
           <div class="form-group">
-            {!! Form::label('mobile', __( 'business.mobile' ) . ':') !!}
-            {!! Form::text('mobile', $location->mobile, ['class' => 'form-control', 'placeholder' => __( 'business.mobile')]); !!}
+            {!! Form::label('phone', __( 'Phone' ) . ':') !!}
+            {!! Form::text('phone', $location->phone, ['class' => 'form-control', 'placeholder' => __( 'Phone')]); !!}
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            {!! Form::label('alternate_number', __( 'business.alternate_number' ) . ':') !!}
-            {!! Form::text('alternate_number', $location->alternate_number, ['class' => 'form-control', 'placeholder' => __( 'business.alternate_number')]); !!}
+            {!! Form::label('street_address_1', __( 'Street Address 1' ) . ':') !!}
+            {!! Form::text('street_address_1', $location->street_address_1, ['class' => 'form-control', 'placeholder' => __( 'Street Address 1')]); !!}
           </div>
         </div>
         <div class="clearfix"></div>
@@ -78,8 +78,8 @@
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            {!! Form::label('website', __( 'lang_v1.website' ) . ':') !!}
-            {!! Form::text('website', $location->website, ['class' => 'form-control', 'placeholder' => __( 'lang_v1.website')]); !!}
+            {!! Form::label('street_address_2', __( 'Street Address 2' ) . ':') !!}
+            {!! Form::text('street_address_2', $location->street_address_2, ['class' => 'form-control', 'placeholder' => __( 'Street Address 2')]); !!}
           </div>
         </div>
         <div class="clearfix"></div>
@@ -101,34 +101,98 @@
       <div class="col-md-12">
         <hr/>
       </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-            {!! Form::label('custom_field1', __('lang_v1.custom_field', ['number' => 1]) . ':') !!}
-            {!! Form::text('custom_field1', $location->custom_field1, ['class' => 'form-control', 
-                'placeholder' => __('lang_v1.custom_field', ['number' => 1])]); !!}
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('credit', __('Credit') . ':') !!}
+            {!! Form::text('credit', $location->credit, ['class' => 'form-control',
+                'placeholder' => __('Credit')]); !!}
+          </div>
         </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-            {!! Form::label('custom_field2', __('lang_v1.custom_field', ['number' => 2]) . ':') !!}
-            {!! Form::text('custom_field2', $location->custom_field2, ['class' => 'form-control', 
-                'placeholder' => __('lang_v1.custom_field', ['number' => 2])]); !!}
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('ceo', __('CEO') . ':') !!}
+            {!! Form::text('ceo', $location->ceo, ['class' => 'form-control',
+                'placeholder' => __('CEO')]); !!}
+          </div>
         </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-            {!! Form::label('custom_field3', __('lang_v1.custom_field', ['number' => 3]) . ':') !!}
-            {!! Form::text('custom_field3', $location->custom_field3, ['class' => 'form-control', 
-                'placeholder' => __('lang_v1.custom_field', ['number' => 3])]); !!}
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('legal_name', __('Legal Name') . ':') !!}
+            {!! Form::text('legal_name', $location->legal_name, ['class' => 'form-control',
+                'placeholder' => __('Legal Name')]); !!}
+          </div>
         </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-            {!! Form::label('custom_field4', __('lang_v1.custom_field', ['number' => 4]) . ':') !!}
-            {!! Form::text('custom_field4', $location->custom_field4, ['class' => 'form-control', 
-                'placeholder' => __('lang_v1.custom_field', ['number' => 4])]); !!}
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('domain_name', __('Domain Name') . ':') !!}
+            {!! Form::text('domain_name', $location->domain_name, ['class' => 'form-control',
+                'placeholder' => __('Domain Name')]); !!}
+          </div>
         </div>
-      </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('tps_nbr', __('TPS NBR') . ':') !!}
+            {!! Form::text('tps_nbr', $location->tps_nbr, ['class' => 'form-control',
+                'placeholder' => __('TPS NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('tvq_nbr', __('TVQ NBR') . ':') !!}
+            {!! Form::text('tvq_nbr', $location->tvq_nbr, ['class' => 'form-control',
+                'placeholder' => __('TVQ NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('canada_border', __('Canada Border') . ':') !!}
+            {!! Form::text('canada_border', $location->canada_border, ['class' => 'form-control',
+                'placeholder' => __('Canada Border')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('agencie_nbr', __('Agencie NBR') . ':') !!}
+            {!! Form::text('agencie_nbr', $location->agencie_nbr, ['class' => 'form-control',
+                'placeholder' => __('Agencie NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('seller_nbr', __('Seller NBR') . ':') !!}<br/>
+            {!! Form::text('seller_nbr', $location->seller_nbr, ['class' => 'form-control',
+                'placeholder' => __('Seller NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('revenue_quebec_file_nbr', __('Revenue Quebec File NBR') . ':') !!}
+            {!! Form::text('revenue_quebec_file_nbr', $location->revenue_quebec_file_nbr, ['class' => 'form-control',
+                'placeholder' => __('Revenue Quebec File NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('revenue_canada_file_nbr', __('Revenue Canada File NBR') . ':') !!}
+            {!! Form::text('revenue_canada_file_nbr', $location->revenue_canada_file_nbr, ['class' => 'form-control',
+                'placeholder' => __('Revenue Canada File NBR')]); !!}
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('other', __('Other') . ':') !!}
+            {!! Form::text('other', $location->other, ['class' => 'form-control',
+                'placeholder' => __('Other')]); !!}
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            {!! Form::label('business_percentage', __('Business %') . ':') !!}
+            {!! Form::text('business_percentage', $location->business_percentage, ['class' => 'form-control',
+                'placeholder' => __('Business %')]); !!}
+          </div>
+        </div>
 
       </div>
     </div>

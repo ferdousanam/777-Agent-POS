@@ -56,8 +56,7 @@ class BusinessLocationController extends Controller
                     '=',
                     'il.id'
                 )
-                ->select(['business_locations.name', 'location_id', 'landmark', 'city', 'zip_code', 'state',
-                    'country', 'business_locations.id', 'ic.name as invoice_scheme', 'il.name as invoice_layout']);
+                ->select(['business_locations.name', 'business_sku', 'business_activity', 'city', 'zip_code', 'state', 'country', 'business_locations.id', 'ic.name as invoice_scheme', 'il.name as invoice_layout']);
 
             $permitted_locations = auth()->user()->permitted_locations();
             if ($permitted_locations != 'all') {
@@ -132,16 +131,25 @@ class BusinessLocationController extends Controller
                 return $this->moduleUtil->quotaExpiredResponse('locations', $business_id);
             }
 
-            $input = $request->only(['name', 'landmark', 'city', 'state', 'country', 'zip_code', 'invoice_scheme_id',
-                'invoice_layout_id', 'mobile', 'alternate_number', 'email', 'website', 'custom_field1', 'custom_field2', 'custom_field3', 'custom_field4', 'location_id']);
+            $input = $request->only(['name', 'business_activity', 'city', 'state', 'country', 'zip_code', 'invoice_scheme_id', 'invoice_layout_id', 'phone', 'street_address_1', 'email', 'street_address_2', 'credit', 'ceo', 'legal_name', 'domain_name', 'business_sku',  'tps_nbr',  'tvq_nbr',  'canada_border',  'agencie_nbr',  'seller_nbr',  'revenue_quebec_file_nbr',  'revenue_canada_file_nbr',  'other',  'business_percentage']);
 
             $input['business_id'] = $business_id;
 
             //Update reference count
             $ref_count = $this->commonUtil->setAndGetReferenceCount('business_location');
 
-            if (empty($input['location_id'])) {
-                $input['location_id'] = $this->commonUtil->generateReferenceNumber('business_location', $ref_count);
+            if (empty($input['business_sku'])) {
+                $input['business_sku'] = $this->commonUtil->generateReferenceNumber('business_location', $ref_count);
+            }
+
+            $input['location_id'] = $input['business_sku'];
+
+            if (empty($input['invoice_scheme_id'])) {
+                $input['invoice_scheme_id'] = 1;
+            }
+
+            if (empty($input['invoice_layout_id'])) {
+                $input['invoice_layout_id'] = 1;
             }
 
             $location = BusinessLocation::create($input);
@@ -214,8 +222,9 @@ class BusinessLocationController extends Controller
         }
 
         try {
-            $input = $request->only(['name', 'landmark', 'city', 'state', 'country', 'zip_code', 'invoice_scheme_id',
-                'invoice_layout_id', 'mobile', 'alternate_number', 'email', 'website', 'custom_field1', 'custom_field2', 'custom_field3', 'custom_field4', 'location_id']);
+//            $input = $request->only(['name', 'business_activity', 'city', 'state', 'country', 'zip_code', 'invoice_scheme_id',
+//                'invoice_layout_id', 'mobile', 'alternate_number', 'email', 'website', 'custom_field1', 'custom_field2', 'custom_field3', 'custom_field4', 'business_sku']);
+            $input = $request->only(['name', 'business_activity', 'city', 'state', 'country', 'zip_code', 'invoice_scheme_id', 'invoice_layout_id', 'phone', 'street_address_1', 'email', 'street_address_2', 'credit', 'ceo', 'legal_name', 'domain_name', 'business_sku',  'tps_nbr',  'tvq_nbr',  'canada_border',  'agencie_nbr',  'seller_nbr',  'revenue_quebec_file_nbr',  'revenue_canada_file_nbr',  'other',  'business_percentage']);
             
             $business_id = $request->session()->get('user.business_id');
 
@@ -256,24 +265,29 @@ class BusinessLocationController extends Controller
     */
     public function checkLocationId(Request $request)
     {
-        $location_id = $request->input('location_id');
+        $business_sku = $request->input('business_sku');
 
         $valid = 'true';
-        if (!empty($location_id)) {
+        if (!empty($business_sku)) {
             $business_id = $request->session()->get('user.business_id');
             $hidden_id = $request->input('hidden_id');
 
             $query = BusinessLocation::where('business_id', $business_id)
-                            ->where('location_id', $location_id);
+                            ->where('business_sku', $business_sku);
             if (!empty($hidden_id)) {
                 $query->where('id', '!=', $hidden_id);
             }
             $count = $query->count();
             if ($count > 0) {
-                $valid = 'false';
+                $valid = 'true';
             }
         }
         echo $valid;
         exit;
+    }
+
+    public function checkBusinessSku(Request $request){
+        echo "true";
+        exit();
     }
 }

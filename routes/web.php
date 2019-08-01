@@ -49,7 +49,7 @@ Route::middleware(['IsInstalled', 'auth', 'SetSessionData', 'language', 'timezon
 
     Route::resource('brands', 'BrandController');
     
-    Route::resource('payment-account', 'PaymentAccountController');
+//    Route::resource('payment-account', 'PaymentAccountController');
 
     Route::resource('tax-rates', 'TaxRateController');
 
@@ -168,6 +168,7 @@ Route::middleware(['IsInstalled', 'auth', 'SetSessionData', 'language', 'timezon
     });
 
     //Business Locations...
+    Route::post('business-location/check-business-sku', 'BusinessLocationController@checkBusinessSku');
     Route::post('business-location/check-location-id', 'BusinessLocationController@checkLocationId');
     Route::resource('business-location', 'BusinessLocationController');
 

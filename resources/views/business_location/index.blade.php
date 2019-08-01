@@ -29,9 +29,9 @@
             <table class="table table-bordered table-striped" id="business_location_table">
                 <thead>
                     <tr>
-                        <th>@lang( 'invoice.name' )</th>
-                        <th>@lang( 'lang_v1.location_id' )</th>
-                        <th>@lang( 'business.landmark' )</th>
+                        <th>@lang( 'Business Name' )</th>
+                        <th>@lang( 'Business Sku' )</th>
+                        <th>@lang( 'Business Activity' )</th>
                         <th>@lang( 'business.city' )</th>
                         <th>@lang( 'business.zip_code' )</th>
                         <th>@lang( 'business.state' )</th>
